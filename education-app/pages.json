@@ -19,19 +19,25 @@
 		{
 			"path": "pages/article/article",
 			"style": {
-				"navigationBarTitleText": "阅读"
+				"app-plus":{
+							"titleNView": false
+						}
 			}
 		},
 		{
 			"path": "pages/question/question",
 			"style": {
-				"navigationBarTitleText": "问答"
+				"app-plus":{
+							"titleNView": false
+						}
 			}
 		},
 		{
 			"path": "pages/mine/mine",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"app-plus":{
+							"titleNView": false
+						}
 			}
 		}
 	],

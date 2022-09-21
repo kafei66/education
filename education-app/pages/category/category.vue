@@ -9,7 +9,7 @@
 	
 		<div class="cate-bom" >
 			<div class="bom-left">
-				<view class="left-item"
+				<view :class="{'left-item':true,'active':data.curId == item.id}"
 				 v-for="item in data.navList" 
 				 :key="item.id" 
 				 @tap="changeId(item.id)">
@@ -51,6 +51,7 @@
 </script>
 
 <style lang="scss" scoped>
+	
 	.cate-box{
 		width: 100%;
 		height: 100vh;
@@ -72,24 +73,28 @@
 		display: flex;
 		justify-content: space-between;
 		.bom-left{
-			width: 250rpx;
+			width: 220rpx;
 			margin-right: 50rpx;
 			background-color: #eee;
 			height: 100%;
 			padding: 40rpx 0 0 0;
 		}
 		.bom-right{
-			width: 450rpx;
+			width: 500rpx;
 			height: 100%;
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 			.right-item{
-				flex: 20%;
-				margin-right: 20rpx;
-				width: 100rpx;
-				height: 40rpx;
-				border: 1px solid #333;
+				box-sizing: border-box;
+				width: 200rpx;
+				padding: 10rpx;
+				margin: 20rpx;
+				text-align: center;
+				line-height: 60rpx;
+				height: 80rpx;
+				border: 1px solid #ccc;
+				border-radius: 30rpx;
 			}
 		}
 	}
@@ -101,5 +106,18 @@
 		line-height: 40rpx;
 		
 	}
-	
+	.active{
+		color: #345dc2;
+		// border-left: 2px solid #345dc2;
+		position: relative;
+	}
+	::before{
+		content: '';
+		position: absolute;
+		left: 10rpx;
+		top: 0;
+		width: 5rpx;
+		height: 50rpx;
+		background-color: #345dc2;
+	}
 </style> 

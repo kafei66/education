@@ -21,7 +21,7 @@
 	.top-box{
 		width: 100%;
 		height: 100rpx;
-		background-color: aquamarine;
+		background-color: #345dc2;
 	}
 .search-box{
 	width: 90%;
