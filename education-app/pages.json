@@ -40,7 +40,16 @@
 						}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/searchBox/searchBox",
+            "style" : {
+				"app-plus":{
+							"titleNView": false
+						}
+			}                                                                                   
+        }
+		
+    ],
 	"easycom": {
 		"autoscan": true
 	},

@@ -59,6 +59,11 @@ const getAskWait = async()=>{
 	let data = await http.post("question/api/question/wait",{current: 1, size: 10})
 	return data
 }
+// 热门搜索
+const getHotType = async()=>{
+	let data = await http.get("article/api/category/label/list")
+	return data
+}
 export {
 	getBanner,
 	getNav,
@@ -71,5 +76,6 @@ export {
 	getNavList,
 	getAskHot,
 	getAskNew,
-	getAskWait
+	getAskWait,
+	getHotType
 }
