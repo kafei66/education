@@ -1,7 +1,18 @@
 <template>
 	<view>
-		<swiper class="swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-			<swiper-item class="swiper-box" v-for="item in imgs" :key="item.id">
+		<swiper 
+		class="swiper" 
+		:indicator-dots="true" 
+		:autoplay="true" 
+		:interval="3000" 
+		:duration="1000"
+		  @change="changeBgc"
+		>
+			<swiper-item 
+			class="swiper-box" 
+			
+			v-for="item in imgs" 
+			:key="item.id">
 				<view class="swiper-item">
 					<image :src="item.imageUrl" mode="widthFix"></image>
 				</view>
@@ -11,13 +22,20 @@
 </template>
 
 <script setup>
-	import {ref} from 'vue'
+	import {ref,defineEmits} from 'vue'
 	import {getBanner} from '../../utils/api.js'
 	const imgs = ref([])
+	const bgc = ref('')
+	const emit = defineEmits(['changeBgc'])
 	getBanner().then(res=>{
-		// console.log(res);
+		console.log(res);
 		imgs.value = res.data.data
+		
 	})
+	const changeBgc = (e) => {
+		// console.log(e);
+		emit('changeBgc',e.detail.current)
+	}
 </script>
 
 <style lang="scss" scoped>

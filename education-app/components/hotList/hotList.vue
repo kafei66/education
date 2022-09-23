@@ -1,7 +1,64 @@
 <template>
 	<view class="child-box">
 		<!-- 热门推荐标题 -->
-		<view class="hot-box">
+		<div v-if="icons == 'HOT'">
+			<view class="hot-box">
+				<view class="hot-left">
+					<text class="hot-title"> {{titles}} </text>
+					<text class="hot-icon"> {{icons}}</text>
+				</view>
+				<view class="hot-right">
+					<text class="hot-all">全部 > </text>
+				</view>
+			</view>
+			<!-- 热门推荐列表 -->
+			<view class="hot-list">
+				<view class="hot-item" v-for="item in list" :key="item.id">
+					<view class="item-img">
+						<image :src="item.mainImage" mode="widthFix"></image>
+					</view>
+					<view class="item-title">
+						<view class="title"> {{item.title}} </view>
+						<view class="item-name">{{item.nickName}}</view>
+						<view class="item-total">
+							<text style="color:red;margin-right:100rpx">免费</text>
+							<text> {{item.studyTotal}} 人在学</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 热门推荐标题 -->
+		</div>
+		<div v-if="icons == 'NEW'">
+			<view class="hot-box">
+				<view class="hot-left">
+					<text class="hot-title"> {{titles}} </text>
+					<text class="hot-icon"> {{icons}}</text>
+				</view>
+				<view class="hot-right">
+					<text class="hot-all">全部 > </text>
+				</view>
+			</view>
+			<!-- 热门推荐列表 -->
+			<view class="hot-list">
+				<view class="hot-item" v-for="item in list" :key="item.id">
+					<view class="item-img">
+						<image :src="item.mainImage" mode="widthFix"></image>
+					</view>
+					<view class="item-title">
+						<view class="title"> {{item.title}} </view>
+						<view class="item-name">{{item.nickName}}</view>
+						<view class="item-total">
+							<text style="color:red;margin-right:100rpx">免费</text>
+							<text> {{item.studyTotal}} 人在学</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			
+		</div>
+		<div v-if="icons == 'FREE'">
+			<view class="hot-box">
 			<view class="hot-left">
 				<text class="hot-title"> {{titles}} </text>
 				<text class="hot-icon"> {{icons}}</text>
@@ -26,7 +83,34 @@
 				</view>
 			</view>
 		</view>
-		
+		</div>
+		<div v-if="icons == 'NICE'">
+			<view class="hot-box">
+			<view class="hot-left">
+				<text class="hot-title"> {{titles}} </text>
+				<text class="hot-icon"> {{icons}}</text>
+			</view>
+			<view class="hot-right">
+				<text class="hot-all">全部 > </text>
+			</view>
+		</view>
+		<!-- 热门推荐列表 -->
+		<view class="hot-list">
+			<view class="hot-item" v-for="item in list" :key="item.id">
+				<view class="item-img">
+					<image :src="item.mainImage" mode="widthFix"></image>
+				</view>
+				<view class="item-title">
+					<view class="title"> {{item.title}} </view>
+					<view class="item-name">{{item.nickName}}</view>
+					<view class="item-total">
+						<text style="color:red;margin-right:100rpx">免费</text>
+						<text> {{item.studyTotal}} 人在学</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		</div>
 	</view>
 </template>
 
@@ -75,7 +159,11 @@
 	.hot-list{
 		width: 100%;
 		padding: 20rpx;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 		.hot-item{
+			width: 100vw;
 			display: flex;
 			justify-content: flex-start;
 			margin-top: 20rpx;

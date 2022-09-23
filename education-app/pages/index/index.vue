@@ -1,9 +1,12 @@
 <template>
 	<view class="index-box">
 		<!-- 头部搜索 -->
-		<topSearch></topSearch>
-		<!-- 轮播图 -->
-		<banner></banner>
+		<div class="top-box">
+			<topSearch></topSearch>
+			<!-- 轮播图 -->
+			<banner @changeBgc = "changeBgc"></banner>
+		</div>
+		
 		<!-- 首页导航 -->
 		<view class="nav-box">
 			<text v-for="item in data.navList" :key="item.id"> {{item.name}} </text>
@@ -12,11 +15,11 @@
 		<!-- 热门推荐 -->
 		<hotList list='data.hotLists' titles="热门精选" icons="HOT"></hotList>
 		<!-- 近期上新 -->
-		<hotList list="data.newUp" titles="近期上新" icons="NEW"></hotList>
+		<!-- <hotList list="data.newUp" titles="近期上新" icons="NEW"></hotList> -->
 		<!-- 免费精选 -->
-		<hotList list="data.freeList" titles="免费精选" icons="FREE"></hotList>
+		<!-- <hotList list="data.freeList" titles="免费精选" icons="FREE"></hotList> -->
 		<!-- 付费精品 -->
-		<hotList list="data.goodsList" titles="付费精品" icons="NICE"></hotList>
+		<!-- <hotList list="data.goodsList" titles="付费精品" icons="NICE"></hotList> -->
 	</view>
 </template>
 
@@ -31,7 +34,9 @@
 		hotLists:[],
 		newUp:[],
 		freeList:[],
-		goodsList:[]
+		goodsList:[],
+		bgc:'',
+		bgcList:["#1d5f08","#2b204a","#0f67b4"]
 	})
 	// 首页导航
 	getNav().then(res=>{
@@ -56,7 +61,10 @@
 	getGoods().then(res=>{
 		data.goodsList = res.data.data.records
 	})
-	
+	const changeBgc = (i) =>{
+		data.bgc = data.bgcList[i]
+		// console.log(data.bgc);
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -68,6 +76,7 @@
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		padding: 20rpx ;
+		background-image: linear-gradient();
 		text{
 			width: 22%;
 			height: 80rpx;

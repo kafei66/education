@@ -4,7 +4,10 @@
 		<div class="icon-box">
 			<div class="img">
 				<image src="../../efficient/efficient/m.png" mode="widthFix"></image>
-				<text> 请登录</text>
+				<navigator url="/pages/login/login">
+					<text> 请登录</text>
+				</navigator> 
+				<text></text>
 			</div>
 			<view > > </view>
 		</div>
@@ -69,7 +72,11 @@
 	</view>
 </template>
 
-<script>
+<script setup>
+	
+	
+	
+	
 </script>
 
 <style lang="scss" scoped>

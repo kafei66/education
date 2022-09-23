@@ -64,6 +64,11 @@ const getHotType = async()=>{
 	let data = await http.get("article/api/category/label/list")
 	return data
 }
+// 登陆获取信息
+const getUserMag = async(tel,codes)=>{
+	let data = await http.post("auth/login",{mobile:tel, code: codes})
+	return data
+}
 export {
 	getBanner,
 	getNav,
@@ -77,5 +82,6 @@ export {
 	getAskHot,
 	getAskNew,
 	getAskWait,
-	getHotType
+	getHotType,
+	getUserMag
 }
