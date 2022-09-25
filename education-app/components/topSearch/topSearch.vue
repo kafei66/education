@@ -1,6 +1,6 @@
 <template>
 	<view class="top-box">
-		{{bgcs}}
+		
 		<navigator url="/pages/searchBox/searchBox">
 			<view class="search-box" >
 				<input type="text" placeholder="搜索你想要的内容">

@@ -1,13 +1,6 @@
 <template>
 	<view class="search-box">
-		<view class="inp-box">
-			
-			<view @tap="back"> ♥ </view>
-			<view class="inp">
-				<input type="text" placeholder="搜索你想要的内容">
-			</view>
-			<view>取消</view>
-		</view>
+		<inputBox></inputBox>
 		<view class="hot-title">
 			热门搜索
 		</view>
@@ -25,6 +18,7 @@
 </template>
 
 <script setup>
+	import inputBox from '../../components/inputBox/inputBox.vue'
 	import {getHotType} from '../../utils/api.js'
 	import {reactive} from 'vue'
 	getHotType().then(res=>{
@@ -51,11 +45,7 @@
 			name:'SpringClound'
 		}]
 	})
-	const back = ()=>{
-		uni.navigateBack({
-		    delta: 1
-		});
-	}
+	
 
 </script>
 
@@ -65,24 +55,7 @@
 		height: 100%;
 		padding: 20rpx;
 	}
-    .inp-box{
-	width: 92%;
-	height: 100rpx;
-	display: flex;
-	padding: 30rpx;
-	align-items: center;
-	.inp{
-		width: 80%;
-		margin : 0 20rpx;
-		input{
-			background-color: #eee;
-			width: 100%;
-			height: 70rpx;
-			border-radius: 30rpx;
-			text-align: center;
-		}
-	}
-}
+   
 	.hot-title{
 		font-size: 40rpx;
 		margin-top: 20rpx;

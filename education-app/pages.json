@@ -54,8 +54,16 @@
 							"titleNView": false
 						}
 			} 
+		},{
+			"path" : "pages/indexInfo/indexInfo",
+			"style" : {
+				"app-plus":{
+							"titleNView": false
+						}
+			} 
 		}
 		
+        
     ],
 	"easycom": {
 		"autoscan": true

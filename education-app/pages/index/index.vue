@@ -9,7 +9,13 @@
 		
 		<!-- 首页导航 -->
 		<view class="nav-box">
-			<text v-for="item in data.navList" :key="item.id"> {{item.name}} </text>
+			<text 
+			v-for="item,index in data.navList" 
+			:key="item.id"
+			@tap="navInfo(item.id)"
+			> 
+			{{item.name}} 
+			</text>
 			<text>全部分类</text>
 		</view>
 		<!-- 热门推荐 -->
@@ -27,7 +33,7 @@
 	import topSearch from '../../components/topSearch/topSearch.vue'
 	import banner from '../../components/banner/banner.vue'
 	import hotList from '../../components/hotList/hotList.vue'
-	import {getNav,getHotList,getNewUp,getChoose,getGoods} from '../../utils/api.js'
+	import {getNav,getHotList,getNewUp,getChoose,getGoods,getIndexNavInfo} from '../../utils/api.js'
 	import {reactive,toRefs,ref} from 'vue'
 	const data = reactive({
 		navList:[],
@@ -36,7 +42,8 @@
 		freeList:[],
 		goodsList:[],
 		bgc:'',
-		bgcList:["#1d5f08","#2b204a","#0f67b4"]
+		bgcList:["#1d5f08","#2b204a","#0f67b4"],
+		navInfo:[]
 	})
 	// 首页导航
 	getNav().then(res=>{
@@ -64,6 +71,16 @@
 	const changeBgc = (i) =>{
 		data.bgc = data.bgcList[i]
 		// console.log(data.bgc);
+	}
+	// 获取主页导航详情
+	const navInfo = (id) =>{
+		getIndexNavInfo(id).then(res=>{
+			console.log(res);
+			data.navInfo = res.data.data.records
+			uni.navigateTo({
+				url:"/pages/indexInfo/indexInfo"
+			})
+		})
 	}
 </script>
 

@@ -69,6 +69,11 @@ const getUserMag = async(tel,codes)=>{
 	let data = await http.post("auth/login",{mobile:tel, code: codes})
 	return data
 }
+// 获取首页导航详情
+const getIndexNavInfo = async(id)=>{
+	let data = await http.post("course/api/course/search",{categoryId:id,current:1, size:10})
+	return data
+}
 export {
 	getBanner,
 	getNav,
@@ -83,5 +88,6 @@ export {
 	getAskNew,
 	getAskWait,
 	getHotType,
-	getUserMag
+	getUserMag,
+	getIndexNavInfo
 }

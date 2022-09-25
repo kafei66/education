@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<header>
-				x
+				<text @tap="back">x</text>
 		</header>
 		<view class="title">
 			欢迎回来!
@@ -38,7 +38,11 @@
 	const telNum = ''
 	const codes = ''
 	const loginBtn = ()=>{}
-	
+	const back = ()=>{
+		uni.navigateBack({
+		    delta: 1
+		});
+	}
 </script>
 
 <style lang="scss">

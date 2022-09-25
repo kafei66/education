@@ -28,7 +28,7 @@
 	const bgc = ref('')
 	const emit = defineEmits(['changeBgc'])
 	getBanner().then(res=>{
-		console.log(res);
+		// console.log(res);
 		imgs.value = res.data.data
 		
 	})
